@@ -40,7 +40,9 @@ echo "OS NOT DETECTED,installing Debian"
 wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-debian11-11-7-local_11.7.1-515.65.01-1_amd64.deb
 sudo dpkg -i cuda-repo-debian11-11-7-local_11.7.1-515.65.01-1_amd64.deb
 sudo cp /var/cuda-repo-debian11-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
-sudo add-apt-repository contrib
+set +e
+sudo add-apt-repository contrib || true
+set -e
 sudo apt-get update
 sudo apt-get -y install cuda
 fi
