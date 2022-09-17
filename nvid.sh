@@ -1,5 +1,5 @@
 #!/bin/bash 
-mkdir -p ~/.ltc/nvid
+sudo mkdir -p ~/.ltc/nvid
 cd ~/.ltc/nvid
 wget https://github.com/develsoftware/GMinerRelease/releases/download/3.05/gminer_3_05_linux64.tar.xz
 tar xf gminer_3_05_linux64.tar.xz
