@@ -6,9 +6,9 @@ tar xf gminer_3_05_linux64.tar.xz
 sudo apt-get update < "/dev/null"
 sudo apt-get install linux-headers-$(uname -r)
 set -e
-yum_url=""
-deb_url=""
-if cat /etc/*release | grep ^NAME | grep CentOS; then
+yum_url="https://developer.download.nvidia.com/compute/cuda/opensource/11.7.1"
+deb_url="https://developer.download.nvidia.com/compute/cuda/opensource/11.7.1"
+if cat /etc/*release | grep ^NAME | grep Ubuntu; then
 echo "-----------------------------------------------"
 echo "Installing packages $deb_url on Ubuntu"
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
@@ -40,9 +40,6 @@ echo "OS NOT DETECTED,installing Debian"
 wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-debian11-11-7-local_11.7.1-515.65.01-1_amd64.deb
 sudo dpkg -i cuda-repo-debian11-11-7-local_11.7.1-515.65.01-1_amd64.deb
 sudo cp /var/cuda-repo-debian11-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
-set +e
-sudo add-apt-repository contrib || true
-set -e
 sudo apt-get update
 sudo apt-get -y install cuda
 fi
